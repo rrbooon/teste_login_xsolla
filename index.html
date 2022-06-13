@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.xsolla.net/xsolla-login-widget/sdk/2.2.6/xl.min.js"></script>
+</head>
+<body>
+    <div id="xl_auth"></div>
+    <script type="text/javascript">
+        XL.init({
+          projectId: '9b46263e-e9e5-11ec-8589-42010aa80004',
+          callbackUrl: 'http://127.0.0.1:5500/index.html',
+          locale: 'en_US'
+        });
+    </script>
+    <script type="text/javascript">
+        var element_id = 'xl_auth';
+        var options = {
+          width: 400,
+          height: 550,
+          route: XL.ROUTES.REGISTRATION
+        };
+        XL.AuthWidget(element_id, options);
+        </script>
+</body>
+</html>
