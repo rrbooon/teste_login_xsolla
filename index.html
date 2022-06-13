@@ -8,23 +8,34 @@
 
 </head>
 <body>
-    <div id="xl_auth"></div>
-    <script type="text/javascript">
-        XL.init({
-            projectId: "9b46263e-e9e5-11ec-8589-42010aa80004",
-            callbackUrl: "https://login.xsolla.com/api/blank",
-            locale: 'en_US'
-        });
-    </script>
-    <script type="text/javascript">
-        var element_id = 'xl_auth';
-        var options = {
-          width: 400,
-          height: 550,
-          route: XL.ROUTES.REGISTRATION
-        };
-        XL.AuthWidget(element_id, options);
-        </script>
+    <button onclick="openWidget()"></button>
+
+    <div id="xl_auth" style="width: 100%; height: 1000px"></div>
+        
+  <script type="application/javascript">
+    const s = document.createElement("script");
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = "https://login-sdk.xsolla.com/latest/";
+    const head = document.getElementsByTagName("head")[0];
+    head.appendChild(s);
+    let xl;
+  
+    s.addEventListener("DOMContentLoaded", function() {
+      xl = new XsollaLogin.Widget({
+        projectId: "9b46263e-e9e5-11ec-8589-42010aa80004",
+        callbackUrl: "https://login.xsolla.com/api/blank", // URL to redirect the user to after registration/authentication/password reset.
+        preferredLocale: "en_XX"
+      });
+  
+      xl.mount("xl_auth");
+    });
+    
+    // function for opening a widget by button
+    function openWidget() {
+      xl.open();
+    } 
+  </script>
 
 <script src="https://cdn.xsolla.net/login-widget/v0.61.1/js/20.ca1b7850.chunk.js"></script>
 <script src="https://cdn.xsolla.net/login-widget/v0.61.1/js/main.b2e0ccea.chunk.js"></script>
